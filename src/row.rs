@@ -21,6 +21,7 @@ impl Row {
     pub fn len(&self) -> usize {
         self.string.len()
     }
+    #[allow(dead_code)]
     pub fn is_empty(&self) -> bool {
         self.string.is_empty()
     }

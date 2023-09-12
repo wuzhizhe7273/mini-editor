@@ -30,6 +30,7 @@ impl Terminal {
     }
 
     pub fn clear_screen(&mut self)->Result<(),io::Error>{
+        // self._stdout.queue(terminal::Clear(terminal::ClearType::Purge))?;
         self._stdout.queue(terminal::Clear(terminal::ClearType::All))?;
         Ok(())
     }
@@ -39,8 +40,8 @@ impl Terminal {
     }
     pub fn cursor_position(&mut self,position:&Position)->Result<(),io::Error>{
         let Position{x,  y}=position;
-        let x=x.saturating_add(1);
-        let y=y.saturating_add(1);
+        let x=x.saturating_add(0);
+        let y=y.saturating_add(0);
         let x=x as u16;
         let y =y as u16;
         self._stdout.queue(cursor::MoveTo(x,y))?;
